@@ -1,9 +1,13 @@
 const sha256 = require('sha256');
+const currentNodeUrl = process.argv[3]; //get port url
 
 function Blockchain(){
     this.chain = [];
     this.pendingTransactions = [];
     
+    this.currentNodeUrl = currentNodeUrl;
+    this.networkNodes = []; //urls of others nodes
+
     this.createNewBlock(100,'0','0'); //genysis block -- first block
 }
 

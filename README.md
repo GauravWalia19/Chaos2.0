@@ -7,7 +7,6 @@
 * nodemon
 * body-parser
 * uuid
-
 * request-promise
 * request
 
