@@ -132,3 +132,15 @@ npm run node_5
   * localhost:3004/blockchain
   * localhost:3005/blockchain
 * You will see bitcoin is mined and a reward for transaction is added to it and there are no transactions left on every node except reward.
+
+### CHECKING CONSENSUS ALGORITHM
+
+This algorithm will correct the blockchain. It will update the node which has wrong data in blockchain.
+
+* Run 4 nodes (3001,3002,3003,3004)
+* Do transactions in 4 nodes
+* Mine new blocks in 4 nodes network
+* Now add 5 node (3005) to network
+* Open browser and see conflict i.e node 5 doesn't have all the updated nodes
+* For removing this conflict run CONSENSUS ALGO. by opening ```localhost:3005/consensus``` on browser.
+* Now conflicts are solved.
