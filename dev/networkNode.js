@@ -228,6 +228,40 @@ app.get('/consensus',function(req, res){
     });
 });
 
+//FOR BLOCK EXPLORER
+//search block with given hash
+app.get('/block/:blockHash',function(req,res){
+    const blockHash = req.params.blockHash;
+    const correctBlock = bitcoin.getBlock(blockHash);
+    res.json({
+        block: correctBlock
+    });
+});
+
+//search for transaction id
+app.get('/transaction/:transactionId',function(req,res){
+    const transactionId = req.params.transactionId;
+    const transactionData = bitcoin.getTransaction(transactionId);
+    res.json({
+        transaction: transactionData.transaction,
+        block: transactionData.block
+    });
+});
+
+//search for address
+app.get('/address/:address',function(req,res){
+    const address = req.params.address;
+    const addressData = bitcoin.getAddressData(address);
+    res.json({
+        addressData: addressData
+    });
+});
+
+//linking block explorer -- frontend
+app.get('/block-explorer',function(req,res){
+    res.sendFile('./block-explorer/index.html',{ root: __dirname });
+});
+
 app.listen(port,function(){
     console.log('Listening on port ${port} ...');
 })

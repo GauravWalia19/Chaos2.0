@@ -144,3 +144,27 @@ This algorithm will correct the blockchain. It will update the node which has wr
 * Open browser and see conflict i.e node 5 doesn't have all the updated nodes
 * For removing this conflict run CONSENSUS ALGO. by opening ```localhost:3005/consensus``` on browser.
 * Now conflicts are solved.
+
+### RUNNING A FULL APPLICATION
+
+* Run 5 nodes by making it decentralised as above
+* Open browser with urls
+  * localhost:3001/blockchain
+  * localhost:3002/blockchain
+  * localhost:3003/blockchain
+  * localhost:3004/blockchain
+  * localhost:3005/blockchain
+* Create as much transaction in any node(3001,3002,3003,3004,3005) you like
+* Now Mine the bitcoin by using any one url
+  * localhost:3001/mine
+  * localhost:3002/mine
+  * localhost:3003/mine
+  * localhost:3004/mine
+  * localhost:3005/mine
+* Now open the any url
+  * localhost:3001/block-explorer
+  * localhost:3002/block-explorer
+  * localhost:3003/block-explorer
+  * localhost:3004/block-explorer
+  * localhost:3005/block-explorer
+* Select option and get data
