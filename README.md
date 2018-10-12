@@ -1,6 +1,6 @@
 # CHAOS 2.0
 
-## DEPENDENCIES
+## DEPENDENCIES INSTALLED
 
 * sha256
 * express
@@ -10,53 +10,14 @@
 * request-promise
 * request
 
-## OTHERS
+## OTHERS NEED TO INSTALL
 
 * postman (API development environment)
 * chrome extension JSON FORMATTER
 
 ## WORKING OF BLOCKCHAIN API
 
-* open the repo and start server by **npm start**
 * **don't change the js file while running server it may get crashed never run unless u restart a system**
-
-### SEE CURRENT BLOCKCHAIN
-
-* OPEN **localhost:3000/blockchain** on chrome
-
-### CREATE A NEW TRANSACTION
-
-* OPEN YOUR POSTMAN(installed)
-* Enter the url ```http://localhost:3000/transaction```
-* Check options
-  * Select body
-  * Select raw
-  * Select JSON
-  * Enter the json
-
-```json
-{
-    "amount": 50,
-    "sender": "SDGDFGDFSGDFGDFGG3",
-    "recipient": "SDASGDGDGDLNJFGDFG"
-}
-```
-
-* Here transaction amount is 50 ,sender has a unique sha256 while recipient have a unique a sha256. Click send on postman. For again new transaction change values and again send it.
-* You will receive a message of new transaction on postman
-
-* **Refresh browser** having url **localhost:3000/transaction**
-* You will now see transactions done
-* **Refresh browser** having url **localhost:3000/blockchain**
-* You will now see a pending transactions in blockchain
-
-### MINE A BLOCK
-
-* Now for mining a block
-* **Refresh browser** having url **localhost:3000/mine**
-* You will now see a mined a block on browser
-* Again **Refresh browser** having url **localhost:3000/blockchain**
-* Then u will see no pending transaction
 
 ### MAKING IT A DECENTRALISED
 
@@ -97,7 +58,7 @@ npm run node_5
   * localhost:3004/blockchain
   * localhost:3005/blockchain
 
-* Open postman
+* Open postman to make it decentralised
 * Enter the url ```http://localhost:3001/register-and-broadcast-node```
 * Write json
 
@@ -113,8 +74,11 @@ npm run node_5
 }
 ```
 
-* Enter the url ```http://localhost:3002/register-and-broadcast-node```
-* Write json
+```json
+{
+    "newNodeUrl": "http://localhost:3004"
+}
+```
 
 ```json
 {
@@ -122,13 +86,49 @@ npm run node_5
 }
 ```
 
-* Enter the url ```http://localhost:3005/register-and-broadcast-node```
-* Write json
+* Refresh all urls and see distinct network nodes urls in each node. So its decentralised now.
+
+### CREATE A NEW TRANSACTION IN DECENTRALISED BLOCKCHAIN
+
+* OPEN YOUR POSTMAN(installed)
+* For a transaction select a node you like i.e 3001,3002,3003,3004 and 3005
+* For doing transaction i.e on 3001
+* Enter the url ```http://localhost:3001/transaction/broadcast```
+* Check options
+  * Select body
+  * Select raw
+  * Select JSON
+  * Enter the json
 
 ```json
 {
-    "newNodeUrl": "http://localhost:3004"
+    "amount": 50,
+    "sender": "SDGDFGDFSGDFGDFGG3",
+    "recipient": "SDASGDGDGDLNJFGDFG"
 }
 ```
 
-* Refresh all urls and see distinct network nodes urls in each node. So its decentralised now.
+* Here transaction amount is 50 ,sender has a unique sha256 while recipient have a unique a sha256. Click send on postman. For again new transaction change values and again send it.
+* You will receive a message of new transaction on postman
+
+* **Refresh browser** having urls
+  * localhost:3001/blockchain
+  * localhost:3002/blockchain
+  * localhost:3003/blockchain
+  * localhost:3004/blockchain
+  * localhost:3005/blockchain
+* You will now see a pending transactions in blockchain on every node
+
+### MINE A BLOCK IN DECENTRALISED BLOCKCHAIN
+
+* Now for mining a bitcoin
+* Select node on which you want to mine i.e 3001,3002,3003,3004 and 3005
+* For mining on 3001
+  * **Open or Refresh browser** having url **localhost:3001/mine**
+* **Refresh browser** having urls
+  * localhost:3001/blockchain
+  * localhost:3002/blockchain
+  * localhost:3003/blockchain
+  * localhost:3004/blockchain
+  * localhost:3005/blockchain
+* You will see bitcoin is mined and a reward for transaction is added to it and there are no transactions left on every node except reward.
