@@ -8,6 +8,9 @@
 * body-parser
 * uuid
 
+* request-promise
+* request
+
 ## OTHERS
 
 * postman (API development environment)
@@ -55,3 +58,78 @@
 * You will now see a mined a block on browser
 * Again **Refresh browser** having url **localhost:3000/blockchain**
 * Then u will see no pending transaction
+
+### MAKING IT A DECENTRALISED
+
+* Open 1 terminal enter
+
+```bash
+npm run node_1
+```
+
+* Open 2 terminal enter
+
+```bash
+npm run node_2
+```
+
+* Open 3 terminal enter
+
+```bash
+npm run node_3
+```
+
+* Open 4 terminal enter
+
+```bash
+npm run node_4
+```
+
+* Open 5 terminal enter
+
+```bash
+npm run node_5
+```
+
+* Open the urls on chrome browser
+  * localhost:3001/blockchain
+  * localhost:3002/blockchain
+  * localhost:3003/blockchain
+  * localhost:3004/blockchain
+  * localhost:3005/blockchain
+
+* Open postman
+* Enter the url ```http://localhost:3001/register-and-broadcast-node```
+* Write json
+
+```json
+{
+    "newNodeUrl": "http://localhost:3002"
+}
+```
+
+```json
+{
+    "newNodeUrl": "http://localhost:3003"
+}
+```
+
+* Enter the url ```http://localhost:3002/register-and-broadcast-node```
+* Write json
+
+```json
+{
+    "newNodeUrl": "http://localhost:3005"
+}
+```
+
+* Enter the url ```http://localhost:3005/register-and-broadcast-node```
+* Write json
+
+```json
+{
+    "newNodeUrl": "http://localhost:3004"
+}
+```
+
+* Refresh all urls and see distinct network nodes urls in each node. So its decentralised now.
